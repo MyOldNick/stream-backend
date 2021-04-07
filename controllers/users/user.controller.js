@@ -1,8 +1,6 @@
 const  { userService } = require('../../services')
 
-const hashPassword = require('../../helpers/hash.password')
-const checkPassword = require('../../helpers/check.hash.password')
-const createStreamKey = require('../../helpers/create.stream.key')
+const { hashPassword, createStreamKey, checkPassword } = require('../../helpers')
 
 module.exports = {
     createUser: async (req, res) => {
