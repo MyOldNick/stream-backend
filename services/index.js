@@ -1,0 +1,1 @@
+module.exports.userService = require('./users/user.service')
