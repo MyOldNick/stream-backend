@@ -23,6 +23,8 @@ module.exports = {
 
         const user = await userService.findUserByEmail(email)
 
+        console.log(user)
+
         if(user) {
 
             await checkPassword(password, user.password)

@@ -1,4 +1,4 @@
-const { userService } = require('./services')
+const { userService } = require('../services')
 
 const NodeMediaServer = require('node-media-server'),
     config = require('./config').rtmp_server;
