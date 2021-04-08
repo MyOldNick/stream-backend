@@ -11,4 +11,6 @@ router.post('/register', userController.createUser)
 
 router.post('/auth', userController.authUser)
 
+router.post('/findUsers', userController.findUserByStreamKeys)
+
 module.exports = router

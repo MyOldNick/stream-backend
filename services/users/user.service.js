@@ -12,4 +12,5 @@ module.exports = {
     findUserStreamKey: (key) => {
         return userModel.findOne({stream_key: key})
     }
+    
 }

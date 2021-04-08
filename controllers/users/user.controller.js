@@ -14,6 +14,7 @@ module.exports = {
         const result = await userService.createUser(newUser)
 
         if(result) res.json(result)
+            
         else res.json('Error')
     },
 
@@ -23,8 +24,6 @@ module.exports = {
 
         const user = await userService.findUserByEmail(email)
 
-        console.log(user)
-
         if(user) {
 
             await checkPassword(password, user.password)
@@ -33,5 +32,22 @@ module.exports = {
 
         } else res.json('Error')
 
+    },
+
+    findUserByStreamKeys: async (req, res) => {
+        const {keys} = req.body
+
+        const users = []
+
+        for (let item of keys) {
+
+            const res = await userService.findUserStreamKey(item)
+
+            users.push(res)
+
+        }
+
+
+        res.json(users)
     }
 }
