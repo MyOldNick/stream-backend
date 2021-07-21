@@ -1,13 +1,11 @@
 const controller = require("../../controllers/auth/auth.controller");
-const bodyParser = require("body-parser");
-const jsonParser = bodyParser.json();
 
 module.exports = function(app) {
 
   app.post(
-    "/api/auth/login",jsonParser,
+    "/api/auth/login",
     controller.login
   );
 
-  app.post("/api/auth/regist",jsonParser,controller.regist);
+  app.post("/api/auth/regist",controller.regist);
 };
