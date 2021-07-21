@@ -12,3 +12,10 @@ const connectToDB = () => {
 }
 
 module.exports = connectToDB
+
+const dbConfig = {
+    HOST: "mor_ozzy",
+    DB: "parser",
+    PASSWORD:'a4047946',
+    PORT:'1337'
+  };
