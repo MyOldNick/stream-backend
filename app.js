@@ -2,9 +2,11 @@ const express = require('express')
 const cors = require('cors')
 const nms = require('./media-server/media-server');
 
-const {userRouter} = require('./routes')
+const useRouter = require('./routes')
 
 const connectToDB = require('./database')
+
+const PORT  = 5000;
 
 const app = express()
 
@@ -14,8 +16,10 @@ nms.run()
 app.use(cors())
 app.use(express.json())
 
-app.use('/', userRouter)
+useRouter(app);
 
-app.listen(5000, () => {
-    console.log('Сервер недотвича запущен')
+app.get('/ping',(req, res)=>res.status(200).send({ping:'pong'}));
+
+app.listen(PORT, () => {
+    console.log('Сервер недотвича запущен на ' + PORT);
 })

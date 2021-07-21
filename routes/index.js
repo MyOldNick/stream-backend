@@ -1,1 +1,4 @@
-module.exports.userRouter = require('./users/users.router')
+module.exports = function(app) {
+	require('./auth/auth.router')(app)
+	require('./users/users.router')(app)
+}

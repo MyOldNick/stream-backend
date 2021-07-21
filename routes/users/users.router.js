@@ -1,16 +1,14 @@
-const { Router } = require('express')
-const {userController} = require('../../controllers')
+const controller = require("../../controllers/users/users.controller");
+const { authJwt } = require("../../helpers/");
 
-const router = Router()
+const bodyParser = require("body-parser");
+const jsonParser = bodyParser.json();
 
-router.post('/login', (req, res) => {
-    res.json('login')
-})
+module.exports = function(app) {
+  app.post(
+    "/api/userAll",jsonParser,
+    controller.userAll
+  );
 
-router.post('/register', userController.createUser)
-
-router.post('/auth', userController.authUser)
-
-router.post('/findUsers', userController.findUserByStreamKeys)
-
-module.exports = router
+  app.post("/api/userPrivate",jsonParser,[authJwt.verifyToken],controller.userPrivate);
+};
